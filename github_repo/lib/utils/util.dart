@@ -1,5 +1,7 @@
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
 
 class Util {
   static void showSnackBar(ScaffoldState scaffoldState,
@@ -28,5 +30,67 @@ class Util {
     }
     return await Fluttertoast.showToast(
         msg: message.toString(), toastLength: length);
+  }
+
+  static Future<ConnectivityResult> networkIsConnective() async {
+    ConnectivityResult connectivityResult =
+        await Connectivity().checkConnectivity();
+    if (connectivityResult == ConnectivityResult.mobile ||
+        connectivityResult == ConnectivityResult.wifi) {
+      return connectivityResult;
+    } else {
+      return null;
+    }
+  }
+
+  static String getFriendlyDateTime(String time) {
+    String friendlyTime;
+    if (time == null || time.isEmpty) {
+      return friendlyTime;
+    }
+    try {
+      DateTime datetime = DateTime.parse(time).toLocal();
+      DateTime now = DateTime.now();
+      Duration difference = datetime.difference(now);
+      DateFormat uiFormat = DateFormat('yyyy-MM-dd HH:mm');
+      friendlyTime = uiFormat.format(datetime);
+      if (difference.inMilliseconds < 0) {
+        difference = difference.abs();
+        if (datetime.year != now.year) {
+          uiFormat = DateFormat('yyyy-MM-dd');
+          friendlyTime = uiFormat.format(datetime);
+        } else if (datetime.month != now.month) {
+          uiFormat = DateFormat('MM-dd');
+          friendlyTime = uiFormat.format(datetime);
+        } else if (datetime.day != now.day) {
+          int days = difference.inDays;
+          if (days == 0) {
+            ++days;
+          }
+          friendlyTime = '$days days ago';
+        } else if (datetime.hour != now.hour) {
+          int hours = difference.inHours;
+          if (hours == 0) {
+            ++hours;
+          }
+          friendlyTime = '$hours hours ago';
+        } else if (datetime.minute != now.minute) {
+          int minutes = difference.inMinutes;
+          if (minutes == 0) {
+            ++minutes;
+          }
+          friendlyTime = '$minutes minutes ago';
+        } else if (datetime.second != now.second) {
+          int seconds = difference.inSeconds;
+          if (seconds == 0) {
+            ++seconds;
+          }
+          friendlyTime = '$seconds seconds ago';
+        }
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+    return friendlyTime;
   }
 }
