@@ -85,8 +85,10 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<Language> {
     if (lang != null) {
       switch (lang) {
         case 'en':
+          Language.current = const $en();
           return SynchronousFuture<Language>(Language.current);
         case 'vi_VN':
+          Language.current = const $vi_VN();
           return SynchronousFuture<Language>(Language.current);
         default:
         //
