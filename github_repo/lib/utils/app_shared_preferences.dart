@@ -49,4 +49,4 @@ class AppSharedPreferences {
       _sp.setStringList(key, value);
 }
 
-AppSharedPreferences appSP = AppSharedPreferences();
+AppSharedPreferences appSharedPreferences = AppSharedPreferences();
