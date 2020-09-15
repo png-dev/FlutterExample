@@ -32,6 +32,8 @@ dependencies:
   connectivity: ^0.4.9+2
   fluttertoast: ^7.1.0
   intl: ^0.16.1
+  dio: ^3.0.10
+  json_annotation: ^3.0.1
 
 dev_dependencies:
   flutter_test:

@@ -1,9 +1,10 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:github_repo/utils/app_shared_preferences.dart';
-import 'package:github_repo/utils/string_util.dart';
+import 'package:github_repo/network/dio_client.dart';
 
 _parseAndDecode(String response) {
   return jsonDecode(response);
@@ -13,7 +14,10 @@ parseJson(String text) {
   return compute(_parseAndDecode, text);
 }
 
-void main() {}
+void main() {
+  (dioClient.dio.transformer as DefaultTransformer).jsonDecodeCallback =
+      parseJson;
+}
 
 class MyApp extends StatefulWidget {
   @override
