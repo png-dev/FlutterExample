@@ -11,9 +11,9 @@ class EventTypes {
   static const String downloadEvent = 'DownloadEvent';
   static const String followEvent = 'FollowEvent';
   static const String forkEvent = 'ForkEvent';
-  static const String forkAPplyEvent = 'ForkApplyEvent';
-  static const String githubAppAuthorizationEvent =
-      'GithubAppAuthorizationEvent';
+  static const String forkApplyEvent = 'ForkApplyEvent';
+  static const String gitHubAppAuthorizationEvent =
+      'GitHubAppAuthorizationEvent';
   static const String gistEvent = 'GistEvent';
   static const String gollumEvent = 'GollumEvent';
   static const String installationEvent = 'InstallationEvent';
@@ -22,9 +22,9 @@ class EventTypes {
   static const String issueCommentEvent = 'IssueCommentEvent';
   static const String issuesEvent = 'IssuesEvent';
   static const String labelEvent = 'LabelEvent';
-  static const String marketPlacePurchaseEvent = 'marketPlacePurchaseEvent';
+  static const String marketplacePurchaseEvent = 'MarketplacePurchaseEvent';
   static const String memberEvent = 'MemberEvent';
-  static const String memberShipEvent = 'MemberShipEvent';
+  static const String membershipEvent = 'MembershipEvent';
   static const String metaEvent = 'MetaEvent';
   static const String milestoneEvent = 'MilestoneEvent';
   static const String organizationEvent = 'OrganizationEvent';
@@ -47,7 +47,7 @@ class EventTypes {
   static const String repositoryVulnerabilityAlertEvent =
       'RepositoryVulnerabilityAlertEvent';
   static const String securityAdvisoryEvent = 'SecurityAdvisoryEvent';
-  static const String startEvent = 'StartEvent';
+  static const String starEvent = 'StarEvent';
   static const String statusEvent = 'StatusEvent';
   static const String teamEvent = 'TeamEvent';
   static const String teamAddEvent = 'TeamAddEvent';

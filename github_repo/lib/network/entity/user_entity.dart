@@ -5,98 +5,78 @@ import 'package:json_annotation/json_annotation.dart';
 class UserEntity {
   @JsonKey(name: 'gists_url')
   String gistsUrl;
-
   @JsonKey(name: 'repos_url')
   String reposUrl;
-
   @JsonKey(name: 'following_url')
   String followingUrl;
-
   dynamic bio;
-
   @JsonKey(name: 'created_at')
   String createdAt;
-
   String login;
   String type;
   String blog;
-
   @JsonKey(name: 'subscriptions_url')
-  String subScriptionsUrl;
-
+  String subscriptionsUrl;
   @JsonKey(name: 'updated_at')
   String updatedAt;
-
   @JsonKey(name: 'site_admin')
   bool siteAdmin;
-
   dynamic company;
   int id;
-
   @JsonKey(name: 'public_repos')
   int publicRepos;
-
   @JsonKey(name: 'gravatar_id')
-  String grAvatarId;
-
+  String gravatarId;
   dynamic email;
-
   @JsonKey(name: 'organizations_url')
   String organizationsUrl;
-
   dynamic hireable;
-
   @JsonKey(name: 'starred_url')
   String starredUrl;
-
   @JsonKey(name: 'followers_url')
   String followersUrl;
-
   int publicGists;
-
   String url;
-
   @JsonKey(name: 'received_events_url')
   String receivedEventsUrl;
-
   int followers;
-
   @JsonKey(name: 'avatar_url')
   String avatarUrl;
-
   @JsonKey(name: 'events_url')
   String eventsUrl;
-
   @JsonKey(name: 'html_url')
   String htmlUrl;
-
   int following;
   dynamic name;
   dynamic location;
-
   @JsonKey(name: 'node_id')
   String nodeId;
 
+  /// 已验证用户返回该字段
   @JsonKey(name: 'private_gists')
   int privateGists;
 
+  /// 已验证用户返回该字段
   @JsonKey(name: 'total_private_repos')
   int totalPrivateRepos;
 
+  /// 已验证用户返回该字段
   @JsonKey(name: 'owned_private_repos')
   int ownedPrivateRepos;
 
+  /// 已验证用户返回该字段
   @JsonKey(name: 'disk_usage')
   int diskUsage;
 
+  /// 已验证用户返回该字段
   int collaborators;
 
+  /// 已验证用户返回该字段
   @JsonKey(name: 'two_factor_authentication')
   bool twoFactorAuthentication;
 
+  /// 已验证用户返回该字段
   UserPlan plan;
-
-  bool get isUser => this.type == 'User';
 
   UserEntity(
       {this.gistsUrl,
@@ -104,16 +84,16 @@ class UserEntity {
       this.followingUrl,
       this.bio,
       this.createdAt,
-      this.type,
       this.login,
+      this.type,
       this.blog,
-      this.subScriptionsUrl,
+      this.subscriptionsUrl,
       this.updatedAt,
       this.siteAdmin,
       this.company,
       this.id,
       this.publicRepos,
-      this.grAvatarId,
+      this.gravatarId,
       this.email,
       this.organizationsUrl,
       this.hireable,
@@ -145,19 +125,11 @@ class UserEntity {
 
   @override
   String toString() {
-    return '{gistsUrl: $gistsUrl, reposUrl: $reposUrl, followingUrl: $followingUrl, '
-        'bio: $bio, createdAt: $createdAt, login: $login, type: $type, blog: $blog, '
-        'subscriptionsUrl: $subScriptionsUrl, updatedAt: $updatedAt, siteAdmin: $siteAdmin,'
-        ' company: $company, id: $id, publicRepos: $publicRepos, gravatarId: $grAvatarId, '
-        'email: $email, organizationsUrl: $organizationsUrl, hireable: $hireable, '
-        'starredUrl: $starredUrl, followersUrl: $followersUrl, publicGists: $publicGists,'
-        ' url: $url, receivedEventsUrl: $receivedEventsUrl, followers: $followers, '
-        'avatarUrl: $avatarUrl, eventsUrl: $eventsUrl, htmlUrl: $htmlUrl, following: $following,'
-        ' name: $name, location: $location, nodeId: $nodeId, privateGists: $privateGists, '
-        'totalPrivateRepos: $totalPrivateRepos, ownedPrivateRepos: $ownedPrivateRepos, '
-        'diskUsage: $diskUsage, collaborators: $collaborators,'
-        ' twoFactorAuthentication: $twoFactorAuthentication, plan: $plan}';
+    return '{gistsUrl: $gistsUrl, reposUrl: $reposUrl, followingUrl: $followingUrl, bio: $bio, createdAt: $createdAt, login: $login, type: $type, blog: $blog, subscriptionsUrl: $subscriptionsUrl, updatedAt: $updatedAt, siteAdmin: $siteAdmin, company: $company, id: $id, publicRepos: $publicRepos, gravatarId: $gravatarId, email: $email, organizationsUrl: $organizationsUrl, hireable: $hireable, starredUrl: $starredUrl, followersUrl: $followersUrl, publicGists: $publicGists, url: $url, receivedEventsUrl: $receivedEventsUrl, followers: $followers, avatarUrl: $avatarUrl, eventsUrl: $eventsUrl, htmlUrl: $htmlUrl, following: $following, name: $name, location: $location, nodeId: $nodeId, privateGists: $privateGists, totalPrivateRepos: $totalPrivateRepos, ownedPrivateRepos: $ownedPrivateRepos, diskUsage: $diskUsage, collaborators: $collaborators, twoFactorAuthentication: $twoFactorAuthentication, plan: $plan}';
   }
+
+  /// 判断用户类型，[type] 为 User时返回true，为Organization或其他时返回false。
+  bool get isUser => this.type == 'User';
 }
 
 UserEntity _$UserEntityFromJson(Map<String, dynamic> json) {
@@ -170,13 +142,13 @@ UserEntity _$UserEntityFromJson(Map<String, dynamic> json) {
     login: json['login'] as String,
     type: json['type'] as String,
     blog: json['blog'] as String,
-    subScriptionsUrl: json['subscriptions_url'] as String,
+    subscriptionsUrl: json['subscriptions_url'] as String,
     updatedAt: json['updated_at'] as String,
     siteAdmin: json['site_admin'] as bool,
     company: json['company'],
     id: json['id'] as int,
     publicRepos: json['public_repos'] as int,
-    grAvatarId: json['gravatar_id'] as String,
+    gravatarId: json['gravatar_id'] as String,
     email: json['email'],
     organizationsUrl: json['organizations_url'] as String,
     hireable: json['hireable'],
@@ -215,13 +187,13 @@ Map<String, dynamic> _$UserEntityToJson(UserEntity instance) =>
       'login': instance.login,
       'type': instance.type,
       'blog': instance.blog,
-      'subscriptions_url': instance.subScriptionsUrl,
+      'subscriptions_url': instance.subscriptionsUrl,
       'updated_at': instance.updatedAt,
       'site_admin': instance.siteAdmin,
       'company': instance.company,
       'id': instance.id,
       'public_repos': instance.publicRepos,
-      'gravatar_id': instance.grAvatarId,
+      'gravatar_id': instance.gravatarId,
       'email': instance.email,
       'organizations_url': instance.organizationsUrl,
       'hireable': instance.hireable,
