@@ -1,9 +1,14 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:github_repo/generated/i18n.dart';
+import 'package:github_repo/pages/splash_page.dart';
 import 'package:github_repo/provide/locale_provide.dart';
 import 'package:github_repo/provide/theme_provide.dart';
 import 'package:github_repo/provide/user_provide.dart';
+import 'package:github_repo/routes/app_route.dart';
 import 'package:github_repo/utils/sp_util.dart';
 import 'package:github_repo/utils/string_util.dart';
 import 'package:provide/provide.dart';
@@ -65,6 +70,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    _initSharedPreferences();
   }
 
   @override
@@ -75,6 +81,27 @@ class _MyAppState extends State<MyApp> {
           builder: (context, child, themeProvide) {
             return MaterialApp(
               locale: localeProvide.local,
+              routes: appRoute.routes,
+              onGenerateRoute: appRoute.generateRoute,
+              navigatorObservers: [appRoute],
+              localizationsDelegates: const [
+                Language.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: Language.delegate.supportedLocales,
+              title: 'GITHUB',
+              onGenerateTitle: (context) => Language.current.appTitle,
+              theme: themeProvide.themeData,
+              home: _isInitialed
+                  ? SplashPage()
+                  : Container(
+                      color: Colors.white,
+                      child: Center(
+                        child: SvgPicture.asset('images/github-logo.svg', fit: BoxFit.contain,),
+                      ),
+                    ),
             );
           },
         );

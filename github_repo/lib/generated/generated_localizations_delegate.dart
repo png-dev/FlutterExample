@@ -65,15 +65,6 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<Language> {
     };
   }
 
-  String getLang(Locale locale) {
-    if (locale == null) {
-      return null;
-    } else if (locale.countryCode != null && locale.countryCode.isEmpty) {
-      return locale.languageCode;
-    }
-    return locale.toString();
-  }
-
   @override
   bool isSupported(Locale locale) {
     return _isSupported(locale, true);
@@ -103,4 +94,13 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<Language> {
   bool shouldReload(LocalizationsDelegate<Language> old) {
     return false;
   }
+}
+
+String getLang(Locale locale) {
+  if (locale == null) {
+    return null;
+  } else if (locale.countryCode != null && locale.countryCode.isEmpty) {
+    return locale.languageCode;
+  }
+  return locale.toString();
 }

@@ -7,7 +7,7 @@ class Language implements WidgetsLocalizations {
 
   static Language current;
 
-  static const GeneratedLocalizationsDelegate deletegate =
+  static const GeneratedLocalizationsDelegate delegate =
       GeneratedLocalizationsDelegate();
 
   static Language of(BuildContext context) =>
