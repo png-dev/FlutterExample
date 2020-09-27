@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:github_repo/biz/user_biz.dart';
 import 'package:github_repo/generated/i18n.dart';
+import 'package:github_repo/pages/about_page.dart';
 import 'package:github_repo/pages/login_page.dart';
 import 'package:github_repo/pages/settings_page.dart';
 import 'package:github_repo/provide/user_provide.dart';
@@ -175,7 +176,9 @@ class _HomeDrawerState extends State<HomeDrawer>
                     ListTile(
                       leading: Icon(Icons.info),
                       title: Text(Language.current.about),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
+                      },
                     ),
                     ListTile(
                       leading: Icon(Icons.exit_to_app),

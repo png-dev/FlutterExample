@@ -209,7 +209,7 @@ class Language implements WidgetsLocalizations {
 
   String get users => "Users";
 
-  String get versions => "Versions";
+  String get version => "Version";
 
   String get watch => "Watch";
 

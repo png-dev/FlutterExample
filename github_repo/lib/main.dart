@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:github_repo/generated/i18n.dart';
 import 'package:github_repo/pages/splash_page.dart';
 import 'package:github_repo/provide/locale_provide.dart';
@@ -99,7 +99,10 @@ class _MyAppState extends State<MyApp> {
                   : Container(
                       color: Colors.white,
                       child: Center(
-                        child: SvgPicture.asset('images/github-logo.svg', fit: BoxFit.contain,),
+                        child: Image.asset(
+                          'images/github-logo.png',
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
             );
