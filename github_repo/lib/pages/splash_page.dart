@@ -6,6 +6,7 @@ import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:github_repo/biz/user_biz.dart';
 import 'package:github_repo/generated/i18n.dart';
 import 'package:github_repo/network/entity/user_entity.dart';
+import 'package:github_repo/pages/home_page.dart';
 import 'package:github_repo/pages/login_page.dart';
 import 'package:github_repo/provide/theme_provide.dart';
 import 'package:github_repo/provide/user_provide.dart';
@@ -29,6 +30,7 @@ class _SplashPageState extends State<SplashPage> {
     UserEntity userEntity = await UserBiz.getUser();
     if (userEntity != null) {
       Provide.value<UserProvide>(context).updateUser(userEntity);
+      Navigator.of(context).pushReplacementNamed(HomePage.ROUTE_NAME);
     } else {
       Navigator.of(context).pushReplacementNamed(LoginPage.ROUTE_NAME);
     }

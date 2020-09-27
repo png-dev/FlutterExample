@@ -2,10 +2,10 @@ import 'package:json_annotation/json_annotation.dart';
 
 @JsonSerializable()
 class AuthorizationPost {
-  static const CLIENT_ID = '';
-  static const CLIENT_SECRET = '';
-  static const APPLICATION_NAME = '';
-  static const CALLBACK_URL = '';
+  static const CLIENT_ID = '95a15eab17ea6f4f0078';
+  static const CLIENT_SECRET = '9229570e116ae15eca0c76ca40110b62625b41dd';
+  static const APPLICATION_NAME = 'PNGRepos';
+  static const CALLBACK_URL = 'https://github.com/png-dev/PNGRepos/callback';
   static const List<String> SCOPES = [
     'user',
     'repo',

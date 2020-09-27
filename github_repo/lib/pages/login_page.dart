@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:github_repo/biz/user_biz.dart';
 import 'package:github_repo/generated/i18n.dart';
+import 'package:github_repo/pages/home_page.dart';
 import 'package:github_repo/provide/user_provide.dart';
 import 'package:github_repo/utils/sp_util.dart';
 import 'package:github_repo/utils/util.dart';
@@ -48,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
     UserBiz.login(_username, _password).then((userEntity) async {
       if (userEntity != null) {
         Provide.value<UserProvide>(context).updateUser(userEntity);
-        // Navigator.of(context).pushReplacementNamed();
+        Navigator.of(context).pushReplacementNamed(HomePage.ROUTE_NAME);
       } else {
         throw Exception('Error when retrieving user information!');
       }

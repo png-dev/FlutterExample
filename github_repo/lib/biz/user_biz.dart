@@ -7,7 +7,7 @@ import 'package:github_repo/utils/string_util.dart';
 
 class UserBiz {
   static String _getCredentialsBasic(String username, String password) {
-    final bytes = latin1.encode('$username:$password');
+    final bytes = latin1.encode("$username:$password");
     final encoded = base64Encode(bytes);
     return "Basic " + encoded;
   }
@@ -45,6 +45,6 @@ class UserBiz {
       SPUtils.setUsername(username);
       SPUtils.setGithubAuthorizationBasic(authBasic);
       SPUtils.setGithubAuthorizationToken('token ${authorizationEntity.token}');
-    }).then((_) => getUser(forceRefresh: true));
+    }).then<UserEntity>((_) => getUser(forceRefresh: true));
   }
 }

@@ -66,6 +66,8 @@ class Language implements WidgetsLocalizations {
 
   String get english => "English";
 
+  String get vietnam => "Vietnamese";
+
   String get filesUppercase => "FILES";
 
   String get filterLanguages => "Filter Languages";
@@ -285,6 +287,9 @@ class $vi_VN extends Language {
 
   @override
   String get english => "Tiếng anh";
+
+  @override
+  String get vietnam => "Tiếng Việt";
 
   @override
   String get shareText => "https://github.com";

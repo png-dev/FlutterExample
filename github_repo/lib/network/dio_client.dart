@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
-import 'package:github_repo/utils/shared_preferences.dart';
 import 'package:github_repo/utils/sp_util.dart';
 import 'package:github_repo/utils/string_util.dart';
 

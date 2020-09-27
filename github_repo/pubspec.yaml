@@ -36,6 +36,7 @@ dependencies:
   provide: ^1.0.2
   flutter_statusbarcolor: ^0.2.3
   flutter_svg: ^0.19.0
+  cached_network_image: ^2.3.2+1
 
 dev_dependencies:
   flutter_test:
