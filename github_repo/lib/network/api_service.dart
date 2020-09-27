@@ -319,4 +319,61 @@ class ApiService {
         await codehubClient.dio.get("/trending", queryParameters: parameters);
     return response.data.map((item) => RepoEntity.fromJson(item)).toList();
   }
+
+  static Future<bool> getStarredRepo(String repoFullName) async {
+    try {
+      Response<String> response =
+          await dioClient.dio.get("/user/starred/$repoFullName");
+      if (response.statusCode == 204)
+        return true;
+      else
+        return false;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  static Future<bool> startOrUnstarRepo(
+      String repoFullName, bool isStar) async {
+    bool actionResult = false;
+    try {
+      Response<String> response;
+      if (isStar) {
+        response = await dioClient.dio.put("/user/starred/$repoFullName");
+      } else {
+        response = await dioClient.dio.delete("/user/starred/$repoFullName");
+      }
+      if (response.statusCode == 204) actionResult = true;
+    } catch (e) {}
+    return actionResult;
+  }
+
+  static Future<bool> getSubscriptionsRepo(String repoFullName) async {
+    try {
+      Response<String> response =
+          await dioClient.dio.get("/user/subscriptions/$repoFullName");
+      if (response.statusCode == 204)
+        return true;
+      else
+        return false;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  static Future<bool> subscriptionsOrUnsubscriptionsRepo(
+      String repoFullName, bool isStar) async {
+    bool actionResult = false;
+    try {
+      Response<String> response;
+      if (isStar) {
+        response = await dioClient.dio.put("/user/subscriptions/$repoFullName");
+      } else {
+        response =
+            await dioClient.dio.delete("/user/subscriptions/$repoFullName");
+      }
+      if (response.statusCode == 204) actionResult = true;
+    } catch (e) {}
+    return actionResult;
+  }
 }

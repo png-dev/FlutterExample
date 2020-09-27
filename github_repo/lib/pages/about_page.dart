@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:github_repo/generated/i18n.dart';
+import 'package:github_repo/pages/profile_page.dart';
+import 'package:github_repo/routes/profile_page_args.dart';
 import 'package:github_repo/utils/util.dart';
 import 'package:launch_review/launch_review.dart';
 import 'package:package_info/package_info.dart';
@@ -88,7 +90,12 @@ class _AboutPageState extends State<AboutPage> {
                 title: Text(Language.current.authorName ?? ''),
                 subtitle: Text(Language.current.authorLocation),
                 trailing: Icon(Icons.keyboard_arrow_right),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, ProfilePage.ROUTE_NAME,
+                      arguments: ProfilePageArgs(
+                          login: Language.current.authorGithubLogin,
+                          heroTag: 'png-dev'));
+                },
               ),
               ListTile(
                 leading: Icon(Icons.email),
